@@ -79,8 +79,6 @@
 
     ReactDOM.createRoot(document.querySelector("#root1")).render(h1Element);
     // <script type="text/babel"> 코드 추가안돼면 - 에러출력: Uncaught SyntaxError: Unexpected token '<'
-
-  
   </script>
 
   <hr>
@@ -203,10 +201,12 @@
   <h1>연습</h1>
   
   <div id="root8"></div>
-  <script>
+  <script type="text/babel">
   
     // 연습1) 아래 변수에 저장된 값을 <div> 태그로 화면에 표시하세요.
     const name = 'Tom';
+    // const practice = <div>{}</div>
+    const practice1 = <div>{name}</div>
 
     // 연습2) 아래 객체에 저장된 값 중 model 속성만 <div> 태그로 화면에 표시하세요.
     const car = {
@@ -214,18 +214,40 @@
       price: 4000,
     }
 
+    const practice2 = <div>{car.model}</div>
+
     // 연습3) 아래 score 값이 60 이상이면 "합격", 아니면 "불합격"을 <div> 태그로 화면에 표시하세요.
     const score = 80;
+    const practice3 = <div>{score >= 60 ? '합격' : '불합격'}</div>
 
     // 연습4) 아래 변수에 저장된 값이 없으면 "값없음", 값이 있으면 저장된 값을 <div> 태그로 화면에 표시하세요.
     let value;
+    const practice4 = <div>{value || '값없음'}</div>
 
     // 연습5) 아래 color 값이 "r"이면 "red", "g"이면 "green", "b"이면 "blue" 배경색을 <div> 태그에 적용해 화면에 표시하세요.
     //       (100 x 100 크기)
     const color = 'r';
+    const practice5Style = {
+      width:'100px',
+      height:'100px',
+      backgroundColor: color === 'r' ? 'red' 
+                                       : color === 'g'? 'green'
+                                                      : color === 'b' ? 'blue'
+                                                                      : 'white'
+    };
+    const practice5 = <div style={practice5Style}></div>
 
+    // ReactDOM.createRoot(document.querySelector("#root8").render([practice1, practice2, practice3, practice4, practice5]))
+    ReactDOM.createRoot(document.querySelector("#root8")).render([
+      practice1,
+      practice2,
+      practice3,
+      practice4,
+      practice5
+    ]);
   </script>
 
+  <!-- 삼항연산자가 좀 여럽  -->
 
   
 </body>
