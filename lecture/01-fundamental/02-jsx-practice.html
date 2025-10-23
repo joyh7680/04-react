@@ -13,16 +13,25 @@
   <h1>연습</h1>
   
   <div id="root8"></div>
-  <script>
+  <script  type="text/babel">
   
     // 연습1) 아래 변수에 저장된 값을 <div> 태그로 화면에 표시하세요.
     const name = 'Tom';
+
+    const practice1 = <div>{name}</div>
+
+    ReactDOM.createRoot(document.querySelector("#root8")).render(practice1);  
+
 
     // 연습2) 아래 객체에 저장된 값 중 model 속성만 <div> 태그로 화면에 표시하세요.
     const car = {
       model: 'sorento',
       price: 4000,
     }
+
+    const p1 = <div>{$car.model}</div>
+
+    ReactDOM.createRoot{document.quer}
 
     // 연습3) 아래 score 값이 60 이상이면 "합격", 아니면 "불합격"을 <div> 태그로 화면에 표시하세요.
     const score = 80;
