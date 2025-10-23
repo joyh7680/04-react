@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>props 연습문제 - 내가 푼거</title>
+</head>
+<body>
+
+  <h1>props 연습문제</h1>
+  <div id="root4"></div>
+  <script type="text/babel">
+  
+	  function App() {
+      return (
+        <>
+          {/* 연습1) 아래와 같이 컴포넌트를 호출할 때 전달한 color를 배경색으로 가지도록 컴포넌트를 구현하세요. 박스크기(100*100) */}
+          <ColorBox color={"red"} />
+          {/* 연습2) 아래와 같이 컴포넌트를 호출할 때 전달한 data를 리스트 형태로 출력하도록 컴포넌트를 구현하세요. */}
+          <Items data={["봄", "여름", "가을", "겨울"]} />
+          {/* 연습3) 아래와 같이 컴포넌트를 호출할 때 전달한 friend 객체의 속성값을 출력하도록 컴포넌트를 구현하세요. */}
+          <Person friend={{name: "jack", age: 20}} />
+          {/* 연습4) 아래와 같이 컴포넌트를 호출할 때 내부 요소로 전달한 값을 정사각형의 너비로 계산하여 정사각형의 넓이를 출력하는 컴포넌트를 구현하세요. */}
+          <Square>5</Square>
+        </>
+      )
+    }
+  
+	  // 연습에 해당하는 컴포넌트들 만들어보기
+    //일단 1번만 테스트하고 싶다면 나머지 컴포넌트 호출 부분을 주석 처리하거나 제거
+    
+    // 1️ ColorBox 컴포넌트
+    const ColorBox = ({ color }) => {
+      return (
+        <div
+          style={{
+            width: "100px",
+            height: "100px",
+            backgroundColor: color,
+            marginBottom: "10px",
+          }}
+        ></div>
+      );
+    };
+   
+    ReactDOM.createRoot(document.querySelector('#root4')).render(<App />);
+  </script>
+
+
+  <h1>props 연습문제2</h1>
+  <div id="test2"></div>
+  <script type="text/babel">
+  
+	  function App() {
+      return (
+        <>
+          {/* 연습2) data 배열을 리스트 형태로 출력 */}
+          <Items data={["봄", "여름", "가을", "겨울"]} />
+        </>
+      )
+    }
+
+   // Items 컴포넌트
+   const Items = ({data}) => { // {data : [xx, xx, .. ]}
+      return (
+        <ul>
+          { data.map((item) => <li>{item}</li>  )}
+        </ul>
+      )
+    }
+   
+    ReactDOM.createRoot(document.querySelector('#test2')).render(<App />);
+  </script>
+
+</body>
+</html>
