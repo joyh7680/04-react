@@ -1,0 +1,84 @@
+import React, { useState } from 'react'
+
+function Example5() {
+
+  const [user, setUser] = useState({
+    userId: '',
+    userPwd: ''
+  });
+
+
+  /*
+  const handleUserIdChange = (e) => {
+     // 기존의 userPqwd그대로 유지,userId만 변경 
+    //user.userId = e.target.value //  직접값 변경 x (리액트에서는 감지 불가)
+
+    // setUser({
+    //   userId: e.target.value,
+    //   userPwd: user.userPwd  //이건 왜 안바꿔??
+    // })
+
+    //...user는 스프레드(spread) 문법이에요. 즉, user 객체 안의 모든 속성(key-value 쌍)을 그대로 복사해서 새로운 객체에 펼쳐 넣는 문법
+    //...user는 기존 값을 그대로 유지하고, 그 뒤에 오는 항목만 새로 덮어써라
+    setUser({
+      ...user, // 기존 user 객체가 가진 값을 분해하고
+      userId: e.target.value //userId 새로운값으로 덮어씌움
+    })
+  }
+
+   const handleUserPwdChange = (e) => {
+    setUser({
+      ...user, // 기존 user 객체가 가진 값을 분해하고
+      userPwd: e.target.value //userId 새로운값으로 덮어씌움
+    })
+  }
+    */
+
+  //위의 이벤트 핸들러 함수 통합
+  const handleUserChange = (e) => {
+    setUser({
+      // userId|userPwd: e.target.value 
+      ...user,   //기존값 그대로 두고
+      [e.target.name]: e.target.value //현재 이벤트가 발생된 입력상자의 입력값만 덮어씌우기
+    })
+  }
+
+  const handleLoginSubmit = (e) => {
+    if (!user.userId.trim() || !user.userPwd.trim()) {
+        e.preventDefault();
+        alert('입력값이 누락되었습니다.');
+        return;
+      }
+
+      //사용자 입력값 확인
+      alert(`유효성검사 통과! 로그인 제출 진행됩니다. 
+        아이디: ${user.userId}, 비번: ${user.userPwd}`)
+  }
+
+  return (
+    <>
+      <h2>종합예시 - 로그인 폼 (사용자 입력값을 하나의 state변수로 관리)</h2>
+      <form action="/login" method='post'  onSubmit={handleLoginSubmit} >
+        <input 
+          type="text" 
+          placeholder='아이디 입력' 
+          name="userId"
+          value={user.userId}
+          onChange={handleUserChange}
+        />
+        <br />
+        <input 
+          type="password" 
+          placeholder='비밀번호 입력'
+          name="userPwd"
+          value={user.userPwd}
+          onChange={handleUserChange}
+         />
+        <br />
+        <button type='submit'>로그인</button>
+      </form>
+    </>
+  )
+}
+
+export default Example5
