@@ -2,20 +2,23 @@ import Example1 from "./components/Example1"
 import Example2 from "./components/Example2"
 import Example3 from "./components/Example3"
 import Example4 from "./components/Example4"
-import ReviewEx1 from "./components/ReviewEx1"
+import Example5 from "./components/Example5"
+// import ReviewEx1 from "./components/ReviewEx1"
 
 function App() {
  
   return (
     <>
       {/* 의존성 배열에 따른 실행시점 차이  */}
-      <Example1 />
+      {/* <Example1 /> */}
       {/* <Example2 /> */}
       {/* <Example3 /> */}
       
       {/* cleanup함수 예시  */}
       {/* <Example4 /> */}
-      <ReviewEx1 />
+
+      {/* API통신 예시  */}
+      <Example5 />
     </>
   )
 }
