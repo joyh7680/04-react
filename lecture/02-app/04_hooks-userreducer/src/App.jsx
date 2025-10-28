@@ -1,4 +1,5 @@
 import AfterReducer from "./components/AfterReducer"
+import ATM from "./components/ATM"
 import BeforeReducer from "./components/BeforeReducer"
 
 function App() {
@@ -8,6 +9,9 @@ function App() {
       <BeforeReducer />
       <hr />
       <AfterReducer />
+      <hr />
+      <ATM />
+      <hr />
       
     </>
   )
