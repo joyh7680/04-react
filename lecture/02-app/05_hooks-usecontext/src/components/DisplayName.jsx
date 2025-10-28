@@ -1,10 +1,10 @@
 import React from 'react'
 
-function DisplayName() {
+//상태변수 (현재 선택된 이름)
+function DisplayName({currentName}) {
   return (
     <>
-     <h2>현재 선택된 이름: xxx</h2> 
-      
+     <h2>현재 선택된 이름: {currentName}</h2> 
     </>
   )
 }

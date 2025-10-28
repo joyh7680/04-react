@@ -3,8 +3,12 @@ import Example2 from "./components/Example2"
 import Example3 from "./components/Example3"
 import Example4 from "./components/Example4"
 import Example5 from "./components/Example5"
-// import ReviewEx1 from "./components/ReviewEx1"
+import ClearNon from "./review/ClearNon"
+import ReviewEx1 from "./review/ReviewEx1"
+import ReviewEx2 from "./review/ReviewEx2"
+import ReviewEx3 from "./review/ReviewEx3"
 
+import ReviewEx5 from "./review/ReviewEx5"
 function App() {
  
   return (
@@ -19,6 +23,14 @@ function App() {
 
       {/* API통신 예시  */}
       <Example5 />
+
+      {/* 리뷰 */}
+      {/* <ReviewEx1 /> */}
+       {/* <ReviewEx2 /> */}
+       {/* <ReviewEx3 /> */}
+       {/* <ClearNon /> */}
+      <ReviewEx5 />
+
     </>
   )
 }

@@ -8,7 +8,6 @@ function Example4() {
   // 상태관리 2) 타이머 상태
   const [isRunning, setIsRunning] = useState(false);
 
-
   //isRunning 상태 변경시마다 실행
   useEffect(()=> {
     //setup함수

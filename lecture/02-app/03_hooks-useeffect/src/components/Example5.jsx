@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 // useState → 상태 관리
 // useEffect → 사이드 이펙트 처리, 여기서는 API 호출
 
-//Example5 함수형 컴포넌트 정의 시작
+//함수형 컴포넌트 정의
 function Example5() {
 
   // 코드 실행 흐름적으로 생각해보기
@@ -32,13 +32,13 @@ function Example5() {
      .then(jsonData => setPosts(jsonData)); //setPosts(jsonData) → posts 상태 업데이트 → 컴포넌트 재렌더링
   }, []) //컴포넌트 마운트 시 한 번만 실행 ([] 빈 배열 → 의존성 없음)
     /*
-  컴포넌트 마운트 시 한 번만 실행 ([] 빈 배열 → 의존성 없음)
-fetch() → 외부 API 요청
-JSONPlaceholder에서 게시글 데이터 요청
-응답을 JSON으로 변환
-setPosts(jsonData) → posts 상태 업데이트 → 컴포넌트 재렌더링
-즉, 비동기 요청 → 데이터가 오기 전까지 화면에는 빈 배열 표시*/
-
+    컴포넌트 마운트 시 한 번만 실행 ([] 빈 배열 → 의존성 없음)
+    fetch() → 외부 API 요청
+    JSONPlaceholder에서 게시글 데이터 요청
+    응답을 JSON으로 변환
+    setPosts(jsonData) → posts 상태 업데이트 → 컴포넌트 재렌더링
+    즉, 비동기 요청 → 데이터가 오기 전까지 화면에는 빈 배열 표시
+    */
 
   /*
     ## useEffect을 통해서 데이터 불러오기 
@@ -79,7 +79,6 @@ setPosts(jsonData) → posts 상태 업데이트 → 컴포넌트 재렌더링
 }
 
 export default Example5
-
 
 /*
   ## 컴포넌트 본문에 바로 외부 API 통신하는 코드 작성시 문제점 
