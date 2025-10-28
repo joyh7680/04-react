@@ -5,17 +5,20 @@ import { useState } from 'react'
 
 function NameShareApp() {
 
-  const names =['황지원', '제니', '한소희', '수지']
-  const [currentName, setCurrentName] = useState('황지원');
+  const names =['황지원', '제니', '한소희', '수지'] //names라는 배열을 선언하고, 4개의 이름을 저장
+  const [currentName, setCurrentName] = useState('황지원'); //상태 변수 currentName과 상태를 변경하는 함수 setCurrentName을 선언, 초기값은 '황지원'
 
   return (
     <>
       <h1>이름 공유 앱</h1>
 
       {/* 현재 선택된 이름이 display 되는 컴포넌트  */}
-      <DisplayName  currentName = {currentName}/>
+      {/* DisplayName 컴포넌트에 currentName을 props로 전달 */}
+      <DisplayName currentName = {currentName}/> 
+
 
       {/* 현재 선택되는 이름을 변경시켜주는 버튼 목록 컴포넌트  */}
+      {/* ChangeName 컴포넌트에 setCurrentName과 names 배열을 props로 전달 */}
       <ChangeName setCurrentName = {setCurrentName} names={names} />
       
     </>

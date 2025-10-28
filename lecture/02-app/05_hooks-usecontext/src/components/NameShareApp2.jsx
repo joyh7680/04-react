@@ -17,7 +17,8 @@ function NameShareApp2() {
       <h1>이름 공유 앱</h1>
 
       {/* 하위 컴포넌트에서는 가장 가까운 상위 트리의 Provide에서 제공하는 값을 사용할 수 있음  */}
-      <NameContext.Provider value={{
+       {/* Context Provider를 사용해서 하위 컴포넌트들에게 데이터 제공 */}
+      <NameContext.Provider value={{ //value에 {names, currentName, setCurrentName} 객체를 전달
         // names: names,
         // currentName : currentName,
         // setCurrentName: setCurrentName

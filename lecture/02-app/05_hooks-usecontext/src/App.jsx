@@ -1,12 +1,25 @@
 import NameShareApp from "./components/NameShareApp"
 import NameShareApp2 from "./components/NameShareApp2"
+import Page from "./components/Page"
+import './App.css'
+import { useState } from "react"
+import { createContext } from "react"
+
+// Context 생성
+export const ThemeContext = createContext();
 
 function App() {
+
+  const [isDark, setIsDark] = useState(false);
 
   return (
     <>
       {/* <NameShareApp /> */}
-      <NameShareApp2 />
+      {/* <NameShareApp2 /> */}
+
+      <ThemeContext.Provider value= {{isDark, setIsDark}}>
+        <Page />
+      </ThemeContext.Provider>
     </>
   )
 }
