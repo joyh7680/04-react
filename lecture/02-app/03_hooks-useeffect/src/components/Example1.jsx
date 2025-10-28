@@ -3,6 +3,11 @@ import { useEffect, useState } from "react"
 // 의존성 배열이 없는 경우 => 렌더링시마다 (Mount와 Update)
 function Example1() {
 
+  /*
+  now → 현재 시간 문자열 상태
+  setNow → now 상태를 업데이트하는 함수
+  초기값은 new Date().toLocaleTimeString() → 현재 시간 문자열
+  */
   const [now, setNow] = useState(new Date().toLocaleTimeString())
 
   useEffect(() => {
