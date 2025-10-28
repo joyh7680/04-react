@@ -1,17 +1,18 @@
+import Calculator from "./components/Calculator";
 import Counter from "./components/Counter";
-import UserInfo from "./components/UserInfo";
-import ToggleSwitch from "./components/ToggleSwitch";
 import Favorite from "./components/Favorite";
 import Hobby from "./components/Hobby";
-import Todos from "./components/Todos";
-import Calculator from "./components/Calculator";
 import Item from "./components/Item";
 import LoginForm from "./components/LoginForm";
+import Todos from "./components/Todos";
+import ToggleSwitch from "./components/ToggleSwitch";
+import UserInfo from "./components/UserInfo";
 
 function App() {
+
+
   return (
     <>
-
       {/* 1) 카운터 컴포넌트 제작 */}
       <h2>카운터</h2>
       <Counter />

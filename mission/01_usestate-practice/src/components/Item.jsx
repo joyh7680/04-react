@@ -1,19 +1,24 @@
-import { useState } from "react";
+import React, { useState } from 'react'
 
 function Item() {
-  const [item, setItem] = useState("");
+
+  const items = ['사과', '바나나', '오렌지', '포도', '딸기',];
+  const [item, setItem] = useState('');
 
   return (
-    <div>
-      <select value={item} onChange={(e) => setItem(e.target.value)}>
-        <option value="">-- 상품 선택 --</option>
-        <option value="노트북">노트북</option>
-        <option value="핸드폰">핸드폰</option>
-        <option value="이어폰">이어폰</option>
-      </select>
-      <p>선택한 상품: {item || "없음"}</p>
-    </div>
-  );
+    <>
+      <div>
+        {items.map((item) => (
+          <input type="button" value={item} onClick={(e) => setItem(e.target.value)} />
+        ))}
+      </div>
+      <div>
+        <label>선택된 과일: </label>
+        <span>{item || '없음'}</span>
+      </div>
+      {item && <div>🎉 {item}를 선택하셨습니다!</div>}
+    </>
+  )
 }
 
-export default Item;
+export default Item
