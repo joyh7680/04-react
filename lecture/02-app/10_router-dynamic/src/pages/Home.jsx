@@ -24,8 +24,8 @@ function Home() {
     }
 
     // 5-6 조회버튼 클릭시 동작시킬 함수 (/practice/:category/:id 참고)
-    const handleClick = () => {
-      navigate(`/practice/${category}/${id}`);
+     const handleClick = () => {
+      navigate(`/practice/${inputValue.category}/${inputValue.id}`)
     }
 
   return (
