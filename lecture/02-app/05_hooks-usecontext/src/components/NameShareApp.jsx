@@ -16,7 +16,6 @@ function NameShareApp() {
       {/* DisplayName 컴포넌트에 currentName을 props로 전달 */}
       <DisplayName currentName = {currentName}/> 
 
-
       {/* 현재 선택되는 이름을 변경시켜주는 버튼 목록 컴포넌트  */}
       {/* ChangeName 컴포넌트에 setCurrentName과 names 배열을 props로 전달 */}
       <ChangeName setCurrentName = {setCurrentName} names={names} />
