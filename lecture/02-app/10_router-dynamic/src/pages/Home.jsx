@@ -35,7 +35,7 @@ function Home() {
       {/* 1. ui 구성 button 만들어주기  */}
       {/* 2. 이벤트핸들러 작성  */}
       {/* js) location.href= "요청할url" == <a> (서버사이드, 깜빡거림 문제발생)*/}
-      <button onClick={() => location.href='a/bout'}>소개페이지</button>
+      <button onClick={() => location.href='about'}>소개페이지</button>
 
       {/* 4 navigate 함수 호출  */}
       <button onClick={() => navigate('/profile/1')}>1번 회원의 프로필 페이지</button>
@@ -81,3 +81,4 @@ export default Home
 3 useNavigate hook
 4 navigate 함수 호출
  */
+
