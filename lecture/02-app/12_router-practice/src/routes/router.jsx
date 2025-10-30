@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
             element: <MenuDetail />
           },
           {
-            path: ':search',
+            path: 'search',
             element: <MenuSearchResult />
           }
          ]

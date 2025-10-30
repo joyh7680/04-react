@@ -8,7 +8,6 @@ import MenuItem from './MenuItem'
 ------------
 */
 
-
 // 메뉴목록 컴포넌트
 //렌더링 시킬 메뉴 목록 데이터 전달 받기
 

@@ -6,7 +6,7 @@ function MenuSearchForm() {
   // **use hook 은 맨 상단에 정리 
   //2 상태관리
   const [searchInput, setSearchInput] = useState({
-    condition: '',
+    condition: 'menuName', //menuName 꼭있어야함 (menu.json)
     keyword: ''
   })
 

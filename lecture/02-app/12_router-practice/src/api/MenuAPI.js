@@ -18,7 +18,7 @@ function getMenuDetail(id) { //id === 조회할 메뉴 코드값(전달값)
 function searchMenus(condition, keyword) { 
   //condition === 검색조건("menuName"|"categoryName"), keyworkd  === 검색어
   //filter 메소드 콜백함수. true인 값 반환
-  menus.filter((menu) => menu[condition].includes(keyword));
+  return menus.filter((menu) => menu[condition].includes(keyword));
 }
 
 export {getMenus, getMenuDetail, searchMenus}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import MenuList from '../components/MenuList';
+import { searchMenus } from '../api/MenuAPI';
 
 function MenuSearchResult() {
 
@@ -15,9 +16,9 @@ function MenuSearchResult() {
    const keyword = searchParams.get('keyword');
 
    //6
-   useEffect(() => {
+  useEffect(() => {
     setMenus(searchMenus(condition, keyword))
-   }, [])
+  }, []);
 
   return (
     <div>
