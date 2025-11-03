@@ -1,21 +1,27 @@
 import React, { useContext } from 'react'
 import './CartItem.css'
-import { CartContext } from '../App'
+// import { CartContext } from '../App'
+import {useDispatch} from 'react-redux'
+import { decreaseQuantity, increaseQuantity, removeFromCart } from '../store/cartSlice'
 
 function CartItem({item}) { 
 
-  const {dispatch} = useContext(CartContext);
+  // const {dispatch} = useContext(CartContext);
+  const dispatch =  useDispatch()
 
   const handleItemRemove = () => {
-    dispatch({type: 'REMOVE_FROM_CART', payload: item.id })
+    // dispatch({type: 'REMOVE_FROM_CART', payload: item.id })
+    dispatch(removeFromCart(item.id))
   }
 
   const handleItemQuantityInCrease = () =>{
-    dispatch({type: 'INCREASE_QUANTITY', payload: item.id })
+    // dispatch({type: 'INCREASE_QUANTITY', payload: item.id })
+    dispatch(increaseQuantity(item.id))
   }
 
   const handleItemQuantityDecrease = () => {
-    dispatch({type: 'DECREASE_QUANTITY', payload: item.id })
+    // dispatch({type: 'DECREASE_QUANTITY', payload: item.id })
+     dispatch(decreaseQuantity(item.id))
 
   }
 

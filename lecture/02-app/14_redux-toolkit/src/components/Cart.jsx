@@ -1,21 +1,27 @@
 import React, { useContext } from 'react'
 import './Cart.css'
 import CartItem from './CartItem'
-import { CartContext } from '../App';
+// import { CartContext } from '../App';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearCart } from '../store/cartSlice';
 
 function Cart() {
 
-  const {items, dispatch} = useContext(CartContext);
+  // const {items, dispatch} = useContext(CartContext);
+  // const items =  useSelector((state) => state.cart.items); 
+  const {items, totalQuantity, totalPrice} =  useSelector((state) => state.cart); // {items: [], totalQauntity} 
+  const dispatch = useDispatch();
 
-  let totalQuantity = 0; 
-  let totalPrice = 0; 
-  for(const item of items ) { 
-    totalQuantity += item.quantity; 
-    totalPrice += item.price * item.quantity; 
-  }
+  // let totalQuantity = 0; 
+  // let totalPrice = 0; 
+  // for(const item of items ) { 
+  //   totalQuantity += item.quantity;  
+  //   totalPrice += item.price * item.quantity; 
+  // }
 
   const handleClearCart = () => {
-    dispatch({type: 'CREAR_CART'}) 
+    // dispatch({type: 'CREAR_CART'}) 
+    dispatch(clearCart())
   }
 
   return (

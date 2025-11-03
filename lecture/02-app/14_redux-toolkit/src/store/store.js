@@ -6,9 +6,7 @@ const store = configureStore({
   reducer:{
     cart: cartReducer, //state.cart === {items: []}
     // user: useReducer, //state.user === {xx, xx}
-    ...
   }
-
 })
 
 export default store 

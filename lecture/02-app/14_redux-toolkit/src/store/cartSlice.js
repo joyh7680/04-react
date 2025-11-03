@@ -6,6 +6,8 @@ const cartSlice = createSlice({
  //2) 초기 상태값 
  initialState: {
   items: [],
+  totalQuantity:0,
+  totalPrice: 0,
  },
  //3) 리듀서 - 함수 형태로 작성
  /*
@@ -21,23 +23,38 @@ const cartSlice = createSlice({
       }else { //장바구니 목록에 신규아이템 추가
         state.items.push({...action.payload, quantity: 1})
       }
+      state.totalQuantity += 1;
+      state.totalPrice += action.payload.price;
   },
   removeFromCart:(state, action) => {
+    const existingItem = state.items.find((item) => item.id === action.payload);
+    if(existingItem) {
+      state.totalQuantity -= existingItem.quantity //현재삭제할 아이템의 quantity
+      state.totalPrice -= existingItem.quantity * existingItem.price; //현재삭제할 아이템의 quantity * 현재 삭제할 아이템의 price 
+    }
     state.items = state.items.filter((item) => item.id !== action.payload);
   },
   increaseQuantity:(state, action) => {
-    const existingItem = state.items.find((item) => item.id === action.payload.id);
+    const existingItem = state.items.find((item) => item.id === action.payload);
     existingItem.quantity  += 1;
+
+    state.totalQuantity += 1;
+    state.totalPrice += existingItem.price;
   },
   decreaseQuantity:(state, action) => {
-    const existingItem = state.items.find((item) => item.id === action.payload.id);
+    const existingItem = state.items.find((item) => item.id === action.payload);
     if( existingItem.quantity > 1) {
        existingItem.quantity  -= 1;
+
+       state.totalQuantity -= 1;
+       state.totalPrice -= existingItem.price;
     }
   },
   clearCart:(state) => {
     state.items = [];
-  },
+    state.totalQuantity = 0;
+    state.totalPrice = 0;
+  }
  }
 })
 
@@ -49,11 +66,11 @@ console.log(cartSlice.actions.addToCart()); //{ type: 'cart/addToCart', payload:
 
 console.log(cartSlice.actions.addToCart({id:1, name:'상품명', price: 10000}));
 /*
-{
-  type: 'cart/addToCart',
-  payload: { id: 1, name: '상품명', price: 10000 }
-}
-  */
+  {
+    type: 'cart/addToCart',
+    payload: { id: 1, name: '상품명', price: 10000 }
+  }
+*/
 
 //export 1. 모든 액션 생성자 함수 (컴포넌트에서 dispatch하기 위해)
 export const {addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart} = cartSlice.actions
@@ -61,6 +78,7 @@ export const {addToCart, removeFromCart, increaseQuantity, decreaseQuantity, cle
 //defalut export. 전체 리듀서 함수 (스토어에 등록하기 위해)
 //중앙 저장소: 스토어
 export default cartSlice.reducer
+
 /*
   1. 슬라이스
     1) 서로 관련 있는 상태(state)와 액션(action)을 하나로 묶은 조각(slice)입니다.

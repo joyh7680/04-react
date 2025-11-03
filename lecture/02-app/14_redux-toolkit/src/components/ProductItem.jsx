@@ -7,7 +7,7 @@ import { addToCart } from '../store/cartSlice'
 function ProductItem({ product }) { 
   
   // const {dispatch} = useContext(CartContext)
-  const dispatch = useDispatch() // 액션을 전달할 수 있는 dispatch용 함수 반환
+ const dispatch = useDispatch() // 액션을 전달할 수 있는 dispatch용 함수 반환
 
   const handleAddToCart = () => {
     // dispatch({
